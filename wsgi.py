@@ -1,9 +1,22 @@
-from flask import Flask
-application = Flask(__name__)
+dias_atras = 30
+# GGAL GGAL.BA TSLA MSFT AAPL
+papel = 'AAPL'
 
-@application.route("/")
-def hello():
-    return "Hello World! / Homa Mundo"
+import yfinance as yf
+from datetime import date, datetime, timedelta
+tomorrow = date.today() + timedelta(days=1)
+inicio = date.today() - timedelta(days=dias_atras)
 
-if __name__ == "__main__":
-    application.run()
+#define the ticker symbol
+# GGAL TSLA 
+tickerSymbol = papel
+
+#get data on this ticker
+tickerData = yf.Ticker(tickerSymbol)
+
+#get the historical prices for this ticker
+tickerDf = tickerData.history(period='1d', start=inicio, end=tomorrow)
+
+#see your data
+print(tickerDf)
+
