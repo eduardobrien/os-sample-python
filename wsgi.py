@@ -23,11 +23,10 @@ import pandas as pd
 #print(pd.DataFrame(res))
 
 
-
 @application.route("/")
 def hello():
 #    return "Hello World! / Homa Mundo"
-    return pd.DataFrame(res)
+    return res
 
 if __name__ == "__main__":
     application.run()
