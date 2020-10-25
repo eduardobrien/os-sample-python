@@ -26,7 +26,7 @@ import pandas as pd
 
 @application.route("/")
 def hello():
-    return "Hello World! / Homa Mundo"
+#    return "Hello World! / Homa Mundo"
     return pd.DataFrame(res)
 
 if __name__ == "__main__":
